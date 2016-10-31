@@ -1,0 +1,22 @@
+{
+    "name": "lepiaf/serialport",
+    "description": "Serial port access convenience class",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thierry Thuon",
+            "email": "thierry@thuon.eu"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "lepiaf\\SerialPort\\": "src/lepiaf/SerialPort"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
