@@ -5,10 +5,9 @@
     "authors": [
         {
             "name": "Thierry Thuon",
-            "email": "thierry@thuon.eu"
+            "email": "lepiaf@users.noreply.github.com"
         }
     ],
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "lepiaf\\SerialPort\\": "src/lepiaf/SerialPort"
