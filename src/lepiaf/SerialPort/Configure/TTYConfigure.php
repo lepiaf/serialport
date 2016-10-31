@@ -34,13 +34,13 @@ class TTYConfigure implements ConfigureInterface
         'icanon' => false,
         'iexten' => false,
         'echo' => false,
-        '-echoe' => false,
-        '-echok' => false,
-        '-echoctl' => false,
-        '-echoke' => false,
+        'echoe' => false,
+        'echok' => false,
+        'echoctl' => false,
+        'echoke' => false,
         'noflsh' => true,
-        '-ixon' => false,
-        '-crtscts' => false,
+        'ixon' => false,
+        'crtscts' => false,
     ];
 
     /**

@@ -157,8 +157,6 @@ class SerialPort
     }
 
     /**
-     * @return bool
-     *
      * @throws DeviceNotOpened
      */
     private function ensureDeviceOpen()
