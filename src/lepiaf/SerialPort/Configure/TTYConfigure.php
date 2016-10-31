@@ -1,8 +1,6 @@
 <?php
 
-namespace lepiaf\SerialPort;
-
-use lepiaf\SerialPort\Configure\ConfigureInterface;
+namespace lepiaf\SerialPort\Configure;
 
 /**
  * Configuration for linux/mac

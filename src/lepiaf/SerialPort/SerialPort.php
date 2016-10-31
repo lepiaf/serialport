@@ -3,6 +3,7 @@
 namespace lepiaf\SerialPort;
 
 use lepiaf\SerialPort\Configure\ConfigureInterface;
+use lepiaf\SerialPort\Configure\TTYConfigure;
 use lepiaf\SerialPort\Exception\DeviceNotAvailable;
 use lepiaf\SerialPort\Exception\DeviceNotFound;
 use lepiaf\SerialPort\Exception\DeviceNotOpened;
