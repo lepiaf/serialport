@@ -1,10 +1,20 @@
 # SerialPort
 
-Class to handle serial port with php.
+Connect to serial port with PHP
 
 Inspired by [PHP-Serial](https://github.com/Xowap/PHP-Serial), I simplify it and include composer.json to install via composer.
 
+Actually, it works on linux. This library is suitable for working with Arduino. 
+
+## Install via composer
+
+```
+composer require "lepiaf/serialport"
+```
+
 ## How to use
+
+Instantiate a new SerialPort object with a parser and configure tty.
 
 ```php
 <?php
