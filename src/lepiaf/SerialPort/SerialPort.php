@@ -18,7 +18,7 @@ use lepiaf\SerialPort\Parser\SeparatorParser;
  * @author Thierry Thuon <lepiaf@users.noreply.github.com>
  * @copyright MIT
  */
-class SerialPort 
+class SerialPort
 {
     /**
      * File descriptor
@@ -85,7 +85,7 @@ class SerialPort
      *
      * @throws WriteNotAllowed|DeviceNotOpened
      */
-    public function write($data) 
+    public function write($data)
     {
         $this->ensureDeviceOpen();
 
@@ -111,6 +111,8 @@ class SerialPort
             $char = fread($this->fd, 1);
             $chars[] = $char;
         } while ($char != $this->getParser()->getSeparator());
+
+        array_pop($chars); //ignore last char, it's the separator
 
         return $this->getParser()->parse($chars);
     }
