@@ -112,8 +112,6 @@ class SerialPort
             $chars[] = $char;
         } while ($char != $this->getParser()->getSeparator());
 
-        array_pop($chars); //ignore last char, it's the separator
-
         return $this->getParser()->parse($chars);
     }
 
