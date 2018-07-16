@@ -21,7 +21,7 @@ Instantiate a new SerialPort object with a parser and configure tty.
 
 use lepiaf\SerialPort\SerialPort;
 use lepiaf\SerialPort\Parser\SeparatorParser;
-use lepiaf\SerialPort\TTYConfigure;
+use lepiaf\SerialPort\Configure\TTYConfigure;
 
 $serialPort = new SerialPort(new SeparatorParser(), new TTYConfigure());
 
