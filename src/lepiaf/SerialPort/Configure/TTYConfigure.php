@@ -3,7 +3,7 @@
 namespace lepiaf\SerialPort\Configure;
 
 /**
- * Configuration for linux/mac
+ * Configuration for linux
  */
 class TTYConfigure implements ConfigureInterface
 {
@@ -71,7 +71,7 @@ class TTYConfigure implements ConfigureInterface
      *
      * @return string
      */
-    private function getOptions()
+    protected function getOptions()
     {
         if (!$this->options) {
             $this->options = $this->default;
