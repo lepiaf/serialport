@@ -108,7 +108,13 @@ class SerialPort
         $chars = [];
 
         do {
-            $char = fread($this->fd, 1);
+           $char = fread($this->fd, 1);
+
+			  if ($char === '') {
+				  // Avoid infinite loops if the buffer is empty
+				  break;
+			  }
+
             $chars[] = $char;
         } while ($char != $this->getParser()->getSeparator());
 
