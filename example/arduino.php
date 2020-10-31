@@ -12,14 +12,20 @@ $configure->removeOption("9600");
 $configure->setOption("115200");
 
 $serialPort = new SerialPort(new SeparatorParser("\n"), $configure);
-
-
 $serialPort->open("/dev/ttyACM0");
+
+$addMoreCountOnce = true;
+
 while ($data = $serialPort->read()) {
     var_dump($data);
 
     if ($data === "END COUNT") {
-        break;
+        if ($addMoreCountOnce === false) {
+            break;
+        }
+
+        $serialPort->write("10\n");
+        $addMoreCountOnce = false;
     }
 }
 

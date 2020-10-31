@@ -89,7 +89,10 @@ class SerialPort
     {
         $this->ensureDeviceOpen();
 
-        if (false !== ($dataWritten = fwrite($this->fd, $data))) {
+        $dataWritten = fwrite($this->fd, $data);
+        if (false !== $dataWritten) {
+            fflush($this->fd);
+
             return $dataWritten;
         }
 
@@ -113,7 +116,7 @@ class SerialPort
                 continue;
             }
             $chars[] = $char;
-        } while ($char != $this->getParser()->getSeparator());
+        } while ($char !== $this->getParser()->getSeparator());
 
         return $this->getParser()->parse($chars);
     }
