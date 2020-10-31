@@ -25,7 +25,7 @@ class SerialPort
      *
      * @var resource
      */
-    private $fd;
+    private $fd = false;
 
     /**
      * @var ParserInterface
@@ -89,7 +89,10 @@ class SerialPort
     {
         $this->ensureDeviceOpen();
 
-        if (false !== ($dataWritten = fwrite($this->fd, $data))) {
+        $dataWritten = fwrite($this->fd, $data);
+        if (false !== $dataWritten) {
+            fflush($this->fd);
+
             return $dataWritten;
         }
 
@@ -109,8 +112,11 @@ class SerialPort
 
         do {
             $char = fread($this->fd, 1);
+            if ($char === '') {
+                continue;
+            }
             $chars[] = $char;
-        } while ($char != $this->getParser()->getSeparator());
+        } while ($char !== $this->getParser()->getSeparator());
 
         return $this->getParser()->parse($chars);
     }
@@ -126,7 +132,10 @@ class SerialPort
     {
         $this->ensureDeviceOpen();
 
-        return fclose($this->fd);
+        $hasCloseFd = fclose($this->fd);
+        $this->fd = false;
+
+        return $hasCloseFd;
     }
 
     /**

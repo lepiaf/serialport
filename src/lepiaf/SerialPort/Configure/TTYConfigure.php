@@ -8,18 +8,11 @@ namespace lepiaf\SerialPort\Configure;
 class TTYConfigure implements ConfigureInterface
 {
     /**
-     * List of argument that will passed to stty command
-     *
-     * @var array
-     */
-    private $options = [];
-
-    /**
      * Default configuration, suitable for Arduino serial connection
      *
      * @var array
      */
-    private $default = [
+    private $options = [
         'cs8' => true,
         '9600' => true,
         'ignbrk' => true,
@@ -59,7 +52,7 @@ class TTYConfigure implements ConfigureInterface
     }
 
     /**
-     * @param $value
+     * @param string $value
      */
     public function removeOption($value)
     {
@@ -73,16 +66,12 @@ class TTYConfigure implements ConfigureInterface
      */
     protected function getOptions()
     {
-        if (!$this->options) {
-            $this->options = $this->default;
-        }
-
         $options = [];
         foreach ($this->options as $value => $active)  {
             $options[] = $this->getActiveString($active).$value;
         }
 
-        return join(" ", $options);
+        return implode(" ", $options);
     }
 
     /**
