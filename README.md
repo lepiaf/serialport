@@ -14,6 +14,8 @@ composer require "lepiaf/serialport"
 
 ## How to use
 
+You can check a full example in [example](example) folder. It contains a basic Arduino sketch and php file to read it.
+
 Instantiate a new SerialPort object with a parser and configure tty.
 
 ```php
@@ -37,23 +39,3 @@ while ($data = $serialPort->read()) {
 ```
 
 For mac os, you must use `TTYMacConfigure`. It will use `stty -f` instead of `stty -F`.
-
-```php
-<?php
-
-use lepiaf\SerialPort\SerialPort;
-use lepiaf\SerialPort\Parser\SeparatorParser;
-use lepiaf\SerialPort\Configure\TTYMacConfigure;
-
-$serialPort = new SerialPort(new SeparatorParser(), new TTYMacConfigure());
-
-$serialPort->open("/dev/ttyACM0");
-while ($data = $serialPort->read()) {
-    echo $data."\n";
-
-    if ($data === "OK") {
-        $serialPort->write("1\n");
-        $serialPort->close();
-    }
-}
-```
