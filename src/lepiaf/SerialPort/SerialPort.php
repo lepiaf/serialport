@@ -126,7 +126,10 @@ class SerialPort
     {
         $this->ensureDeviceOpen();
 
-        return fclose($this->fd);
+        $hasCloseFd = fclose($this->fd);
+        $this->fd = false;
+
+        return $hasCloseFd;
     }
 
     /**
