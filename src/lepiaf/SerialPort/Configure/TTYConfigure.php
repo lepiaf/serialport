@@ -76,9 +76,7 @@ class TTYConfigure implements ConfigureInterface
      */
     protected function getOptions()
     {
-        if (!$this->options) {
-            $this->options = $this->default;
-        }
+        $this->options = $this->default;
 
         $options = [];
         foreach ($this->options as $value => $active)  {

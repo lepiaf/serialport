@@ -25,7 +25,7 @@ class SerialPort
      *
      * @var resource
      */
-    private $fd;
+    private $fd = false;
 
     /**
      * @var ParserInterface
