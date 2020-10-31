@@ -30,6 +30,6 @@ class SeparatorParser implements ParserInterface
      */
     public function parse(array $chars)
     {
-        return join('', $chars);
+        return implode('', $chars);
     }
 }

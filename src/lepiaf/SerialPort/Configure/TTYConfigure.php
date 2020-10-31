@@ -50,6 +50,9 @@ class TTYConfigure implements ConfigureInterface
     }
 
     /**
+     * Define each option individually
+     * It does not use default option
+     *
      * @param string $value
      * @param bool   $active
      */
@@ -59,7 +62,7 @@ class TTYConfigure implements ConfigureInterface
     }
 
     /**
-     * @param $value
+     * @param string $value
      */
     public function removeOption($value)
     {
@@ -82,7 +85,7 @@ class TTYConfigure implements ConfigureInterface
             $options[] = $this->getActiveString($active).$value;
         }
 
-        return join(" ", $options);
+        return implode(" ", $options);
     }
 
     /**

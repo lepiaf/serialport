@@ -13,9 +13,18 @@
             "lepiaf\\SerialPort\\": "src/lepiaf/SerialPort"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "php-mock/php-mock-phpunit": "^2.6"
     }
 }
