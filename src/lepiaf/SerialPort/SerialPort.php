@@ -109,6 +109,14 @@ class SerialPort
         $this->ensureDeviceOpen();
 
         $chars = [];
+        
+                $r = [$this->fd];
+        $w = NULL;
+        $e = NULL;
+        $res = stream_select($r, $w, $e, 0);
+        if ($res === false) return false;
+        if ($res == 0) return false;
+        
 
         do {
             $char = fread($this->fd, 1);
